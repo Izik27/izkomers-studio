@@ -9,6 +9,7 @@
     font-family: Arial, sans-serif;
     text-align: center;
   }
+
   img {
     max-width: 250px;
   width: 100%;
@@ -17,7 +18,11 @@
   }
 .work-gallery {
    display: grid;
+   grid-template-columns: repeat(3, 1fr);
 }
+.work-gallery img {
+    width: 100%;
+  }
   section {
     margin-bottom: 40px;
   }
