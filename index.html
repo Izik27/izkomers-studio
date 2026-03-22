@@ -9,6 +9,23 @@
     font-family: Arial, sans-serif;
     text-align: center;
   }
+  /* STEP 3: Menu basic cleanup */
+nav {
+  margin-bottom: 20px;   /* space below menu */
+}
+
+n/* STEP 8: Menu polish (professional & specific) */
+.main-nav a {
+  text-decoration: none;
+  color: #111;
+  margin-left: 20px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: #7b2cbf; /* brand purple from logo */
+}
 .work-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -62,7 +79,7 @@ h2 {
 main {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px 20px;
 }
 
 section {
@@ -140,15 +157,94 @@ main {
 .whatsapp-float:hover {
   background-color: #1ebe5d;
 }
+/* HEADER LAYOUT */
+.site-header {
+  display: flex;
+  align-items: center;          /* vertical alignment */
+  justify-content: space-between; /* logo left, menu right */
+  padding: 10px 20px;
+}
+
+/* MENU */
+.main-nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+footer {
+  margin-top: 60px;
+  padding: 20px 10px;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
+}
+/* STEP 2: Mobile ordering — logos first, posters after */
+@media (max-width: 768px) {
+  .work-gallery {
+    grid-template-columns: 1fr; /* single column on mobile */
+  }
+
+  .logo-item {
+    order: 1; /* logos come first */
+  }
+
+  .poster-item {
+    order: 2; /* posters come after */
+  }
+}
+/* STEP 2: Mobile ordering — logos first, posters after */
+@media (max-width: 768px) {
+  .work-gallery {
+    grid-template-columns: 1fr; /* single column on mobile */
+  }
+
+  .logo-item {
+    order: 1; /* logos come first */
+  }
+
+  .poster-item {
+    order: 2; /* posters come after */
+  }
+}
+/* STEP 3C: Clean mobile header spacing & alignment */
+@media (max-width: 768px) {
+
+  .site-header {
+    flex-direction: column;   /* stack logo and menu */
+    align-items: center;
+    gap: 12px;                /* space between logo and menu */
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 18px;                /* space between menu items */
+  }
+
+}
 </style>
 </head>
 
 <body>
   <main>
-<section class="hero">
-<div class="logo-box">
-  <img src="images/logo.png" alt="Izkomers Studio logo" class="site-logo">
-</div>
+   <header class="site-header">
+
+  <div class="logo-box">
+    <img src="images/logo.png" alt="Izkomers Studio logo" class="site-logo">
+  </div>
+
+  <nav class="main-nav">
+    <a href="#">Home</a>
+    <a href="#work">My Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+</header>
 
 <h1>Stop Losing Customers With Poor Design</h1>
 <p>I create flyers, banners, business cards and branding that attract customers.</p>
@@ -158,18 +254,29 @@ main {
 
   <div class="work-gallery">
 
-    <div class="work-item">
+    <!-- LOGOS -->
+    <div class="work-item logo-item">
       <img src="images/logo6.png" alt="logo">
+    </div>
+
+    <div class="work-item logo-item">
+      <img src="images/logo4.png" alt="logo">
+    </div>
+
+    <div class="work-item logo-item">
+      <img src="images/logo5.png" alt="logo">
+    </div>
+
+    <!-- POSTERS -->
+    <div class="work-item poster-item">
       <img src="images/poster1.jpg" alt="poster">
     </div>
 
-    <div class="work-item">
-      <img src="images/logo4.png" alt="logo">
+    <div class="work-item poster-item">
       <img src="images/poster2.jpg" alt="poster">
     </div>
 
-    <div class="work-item">
-      <img src="images/logo5.png" alt="logo">
+    <div class="work-item poster-item">
       <img src="images/poster3.jpg" alt="poster">
     </div>
 
@@ -185,8 +292,11 @@ main {
   Chat Me on WhatsApp
 </a>
 <footer>
-  <p>© 2026 Izkomers Studio</p>
+  <p>© <span id="year"></span> Izkomers Studio</p>
 </footer>
 </main>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
