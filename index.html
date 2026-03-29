@@ -4,187 +4,425 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Izkomers Studio</title>
-
   <style>
     /* =========================
-       GLOBAL
-    ========================= */
-    html {
-      scroll-behavior: smooth;
-    }
+   STEP 1: CSS RESET
+   ========================= */
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      color: #111;
-      background: #ffffff;
-    }
+/* Remove default browser spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+/* Base document setup */
+html {
+  scroll-behavior: smooth;
+}
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #111;
+  line-height: 1.6;
+}
+/* =========================
+   STEP 2: CSS RESET
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    h2 {
-      margin-bottom: 30px;
-    }
+img {
+  max-width: 100%;
+  display: block;
+}
+/* =========================
+   STEP 3: BASE BODY & TEXT
+   ========================= */
 
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      max-width: 600px;
-      margin: 0 auto 20px;
-    }
+body {
+  font-family: Arial, sans-serif;
+  color: #111;
+  background: #ffffff;
+  line-height: 1.6;
+}
 
-    /* =========================
-       HEADER
-    ========================= */
-    .site-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-    }
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-    .logo-box {
-      background: #111;
-      padding: 6px 10px;
-      border-radius: 6px;
-    }
+h1, h2 {
+  font-weight: 700;
+}
 
-    .site-logo {
-      max-width: 180px;
-      display: block;
-    }
+p {
+  max-width: 600px;
+  margin: 0 auto;
+}
+/* =========================
+   STEP 4: Header layout (desktop)
+   ========================= */
 
-    .main-nav a {
-      text-decoration: none;
-      color: #111;
-      margin-left: 20px;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* =========================
+   STEP 5: Menu spacing (desktop)
+   ========================= */
 
-    .main-nav a:hover {
-      color: #7b2cbf;
-    }
+.main-nav a {
+  margin-left: 24px;
+}
+/* =========================
+   STEP 6: Mobile header layout
+   ========================= */
 
-    /* Mobile header */
-    @media (max-width: 768px) {
-      .site-header {
-        flex-direction: column;
-        gap: 12px;
-      }
+@media (max-width: 768px) {
 
-      .main-nav {
-        display: flex;
-        gap: 18px;
-      }
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+  }
 
-      .main-nav a {
-        margin-left: 0;
-      }
-    }
+  .main-nav {
+    margin-top: 12px;
+  }
 
-    /* =========================
-       HERO
-    ========================= */
-    .hero {
-      background: rgba(123, 44, 191, 0.08);
-      padding: 60px 20px;
-      border-radius: 12px;
-      margin-top: 20px;
-      margin-bottom: 60px;
-    }
+  .main-nav a {
+    margin-left: 0;
+  }
 
-    .hero-btn {
-      display: inline-block;
-      margin-top: 24px;
-      padding: 14px 28px;
-      background-color: #7b2cbf;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background-color 0.2s ease, transform 0.2s ease;
-    }
+}
+/* =========================
+   STEP 6.1: Center hero heading
+   ========================= */
 
-    .hero-btn:hover {
-      background-color: #5a189a;
-      transform: translateY(-2px);
-    }
+.hero h1 {
+  text-align: center;
+}
+/* =========================
+   STEP 7: Menu hover color
+   ========================= */
 
-    /* =========================
-       WORK SECTION
-    ========================= */
-    .work-gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+.main-nav a:hover {
+  color: #7b2cbf;
+}
+/* =========================
+   STEP 8: Hero spacing
+   ========================= */
 
-    .work-item img {
-      width: 100%;
-      max-width: 250px;
-      border-radius: 8px;
-      background: #eaeaea;
-      padding: 10px;
-    }
+.hero {
+  margin-top: 40px;
+  margin-bottom: 60px;
+  padding: 40px 20px;
+}
+/* =========================
+   STEP 9: Hero background
+   ========================= */
 
-    @media (max-width: 1024px) {
-      .work-gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+.hero {
+  background: rgba(123, 44, 191, 0.08);
+  border-radius: 12px;
+}
+/* =========================
+   STEP 10: Hero button base
+   ========================= */
 
-    @media (max-width: 600px) {
-      .work-gallery {
-        grid-template-columns: 1fr;
-      }
-    }
+.hero-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 28px;
+  background-color: #7b2cbf;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+}
+/* =========================
+   STEP 11: Hero button hover
+   ========================= */
 
-    /* =========================
-       WHATSAPP FLOAT
-    ========================= */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #7b2cbf;
-      color: #fff;
-      padding: 14px 20px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-      z-index: 1000;
-    }
+.hero-btn:hover {
+  background-color: #5a189a;
+}
+/* =========================
+   STEP 11.1: Center hero button & section headings
+   ========================= */
 
-    .whatsapp-float:hover {
-      background-color: #5a189a;
-    }
+/* Center hero button */
+.hero-btn {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-    /* =========================
-       FOOTER
-    ========================= */
-    footer {
-      margin-top: 80px;
-      padding: 20px 10px;
-      background: #111;
-      color: #fff;
-      font-size: 0.9rem;
-    }
-  </style>
+/* Center section headings */
+section h2 {
+  text-align: center;
+}
+/* =========================
+   STEP 11.2: Center hero content
+   ========================= */
+
+.hero {
+  text-align: center;
+}
+/* STEP 12 — HERO BUTTON POLISH */
+
+.hero-btn {
+  display: inline-block;          /* keeps it centered */
+  margin-top: 32px;               /* space from text */
+  padding: 16px 34px;             /* comfortable click size */
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 999px;           /* modern pill shape */
+  background-color: #7b2cbf;      /* brand purple */
+  color: #ffffff;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(123, 44, 191, 0.35);
+}
+/* STEP 13: Hero section visual separation */
+.hero {
+  background: #f6f3fb;      /* very soft purple tint */
+  padding: 60px 20px;       /* space inside the hero */
+  border-radius: 16px;
+  margin: 40px auto 80px;   /* space outside the hero */
+}
+/* STEP 14 — Hero text contrast refinement */
+
+.hero h1 {
+  color: #1b1026; /* deep, readable heading */
+}
+
+.hero p {
+  color: #3d2b5a; /* softer but still strong */
+}
+/* STEP 15 — Hero button emphasis */
+
+.hero-btn {
+  background-color: #7b2cbf;
+  box-shadow: 0 8px 20px rgba(123, 44, 191, 0.25);
+}
+
+.hero-btn:hover {
+  box-shadow: 0 12px 28px rgba(123, 44, 191, 0.35);
+}
+/* =========================
+   STEP L1: LOGO VISIBILITY FIX
+   ========================= */
+
+.logo-box {
+  background: #111;              /* strong contrast */
+  padding: 10px 14px;            /* breathing space */
+  border-radius: 8px;            /* soft edges */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.site-logo {
+  display: block;
+  max-width: 180px;
+  height: auto;
+}
+/* =========================
+   STEP 1: IMAGE SIZE CONTROL
+   ========================= */
+
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  align-items: center;
+}
+
+.work-item {
+  display: flex;
+  justify-content: center;
+}
+
+.work-item img {
+  width: 100%;
+  max-width: 220px;   /* KEY: controls image size */
+  height: auto;
+  border-radius: 10px;
+  padding: 12px;
+  background: #f2f2f2;
+}
+/* =========================
+   FIX: COLUMN LAYOUT (LOGOS ABOVE POSTERS)
+   ========================= */
+
+.work-gallery {
+  display: flex;
+  flex-direction: column;   /* THIS is the key */
+  gap: 50px;
+}
+
+/* Each row */
+.work-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  justify-items: center;
+}
+/* =========================
+   FIX: UNIFORM IMAGE CARD SIZE
+   ========================= */
+
+.work-item {
+  width: 260px;              /* SAME card width */
+  height: 260px;             /* SAME card height */
+  background: #f2f2f2;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+/* Image scaling inside card */
+.work-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;       /* KEY: keeps logo/poster balanced */
+}
+/* =========================
+   STEP 16: Work image hover effect
+   ========================= */
+
+.work-item img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.work-item img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+/* =========================
+   IMAGE PREVIEW MODAL
+   ========================= */
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.image-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.close-modal {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 42px;
+  color: #ffffff;
+  cursor: pointer;
+  line-height: 1;
+}
+/* =========================
+   STEP 17: IMAGE PREVIEW ANIMATION
+   ========================= */
+
+/* Modal base */
+#imageModal {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Modal active state */
+#imageModal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Image animation */
+#imageModal img {
+  transform: scale(0.92);
+  transition: transform 0.3s ease;
+}
+
+#imageModal.active img {
+  transform: scale(1);
+}
+/* =========================
+   STEP 18: GALLERY HOVER FEEDBACK
+   ========================= */
+
+.work-item img {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.work-item img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+/* =========================
+   STEP 19: WORK SECTION STRUCTURE
+   ========================= */
+
+/* Space between logo row and poster row */
+.work-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+/* Center items inside each row */
+.work-row .work-item {
+  display: flex;
+  justify-content: center;
+}
+/* =========================
+   STEP 20: MOBILE GALLERY FIX
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .work-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .work-item img {
+    max-width: 260px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -226,22 +464,29 @@
       <h2>My Work</h2>
 
       <div class="work-gallery">
-        <div class="work-item"><img src="images/logo6.png" alt="Logo" /></div>
-        <div class="work-item"><img src="images/logo4.png" alt="Logo" /></div>
-        <div class="work-item"><img src="images/logo5.png" alt="Logo" /></div>
-        <div class="work-item"><img src="images/poster1.jpg" alt="Poster" /></div>
-        <div class="work-item"><img src="images/poster2.jpg" alt="Poster" /></div>
-        <div class="work-item"><img src="images/poster3.jpg" alt="Poster" /></div>
-      </div>
+
+  <!-- LOGOS ROW -->
+  <div class="work-row logos">
+    <div class="work-item"><img src="images/logo6.png" alt="Logo"></div>
+    <div class="work-item"><img src="images/logo4.png" alt="Logo"></div>
+    <div class="work-item"><img src="images/logo5.png" alt="Logo"></div>
+  </div>
+
+  <!-- POSTERS ROW -->
+  <div class="work-row posters">
+    <div class="work-item"><img src="images/poster1.jpg" alt="Poster"></div>
+    <div class="work-item"><img src="images/poster2.jpg" alt="Poster"></div>
+    <div class="work-item"><img src="images/poster3.jpg" alt="Poster"></div>
+  </div>
+
+</div>
     </section>
 
     <!-- CONTACT -->
     <footer id="contact">
       <p>© <span id="year"></span> Izkomers Studio</p>
     </footer>
-
   </main>
-
   <!-- WHATSAPP FLOAT -->
   <a
     href="https://wa.me/2347060988611"
@@ -251,10 +496,33 @@
   >
     Chat Me on WhatsApp
   </a>
-
   <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+  // Update footer year
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  // Image preview modal logic
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = document.getElementById("closeModal");
+
+  document.querySelectorAll(".work-item img").forEach(img => {
+    img.addEventListener("click", () => {
+      modal.classList.add("active");
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.remove("active");
+    }
+  });
+</script>
 </body>
 </html>
